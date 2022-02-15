@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set NODE_ENV=dev && node app.js"
+    "start": "set NODE_ENV=dev && node index.js"
   },
   "keywords": [
     "web-scrapping",
