@@ -1,0 +1,29 @@
+{
+  "name": "web-scrapping",
+  "version": "1.0.0",
+  "description": "Scrapping",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set NODE_ENV=dev && node app.js"
+  },
+  "keywords": [
+    "web-scrapping",
+    "procycling-stats",
+    "San-Juan"
+  ],
+  "author": "Juan Pablo Billoud <juanbilloud@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "ejs": "^3.1.6",
+    "express": "^4.16.4",
+    "mongodb": "^4.3.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

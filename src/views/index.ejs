@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Teams</title>
+</head>
+
+<body>
+    <a class="button" href="refresh">Refresh</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>G</th>
+                <th>E</th>
+                <th>P</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i < teams.length; i++) { %>
+                <tr class="<%= i==0 || i == 1 ? 'clasifica' : ((i == (teams.length - 1) || i == (teams.length - 2)) ? 'no-clasifica' : '') %>">
+                    <td class="td-number">
+                        <%= teams[i].position %>
+                    </td>
+                    <td class="td-logo">
+                        <img src="<%= teams[i].imgUrl %>">
+                        <div>
+                            <%= teams[i].team %>
+                        </div>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].PJ %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].G %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].E %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].P %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].GF %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].GC %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].DG %>
+                    </td>
+                    <td class="td-number">
+                        <%= teams[i].points %>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+
+    <style>
+        .button {
+            color: black;
+            text-decoration: none;
+            background-color: #EEEEEE;
+            padding: 5px;
+            border: 1px solid;
+            float: right;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .td-logo>img {
+            float: left;
+        }
+
+        .td-logo>div {
+            float: left;
+            margin-left: 10px;
+            min-width: 200px;
+            height: 36px;
+            line-height: 36px;
+        }
+
+        .td-number {
+            text-align: center;
+            width: 38px;
+        }
+
+        .clasifica{
+            background-color: green;
+        }
+
+        .no-clasifica{
+            background-color: red;
+        }
+    </style>
+</body>
+
+</html>
