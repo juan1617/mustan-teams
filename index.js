@@ -79,13 +79,6 @@ function formatData(data) {
   return formattedData;
 }
 
-function saveInMongoDB(data) {
-  if (data.length > 0) {
-    //Connect to the MongoDB cluster
-
-  }
-}
-
 function readDB() {
   return new Promise(function (resolve, reject) {
     mongoClient.connect(mongodbURI, function (err, dbClient) {
@@ -106,12 +99,11 @@ function readDB() {
   });
 }
 
-//Para ver la página entrar en http://localhost:8000/ desde el browser
 const express = require('express');
 const app = express();
 const path = require('path');
 
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 8000);
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -122,11 +114,11 @@ app.get('/', (req, res) => {
   }).catch((err) => { console.log(err); });
 });
 
-app.get('/refresh', (req, res) => {
-  res.redirect('/');
-});
-
 app.listen(app.get('port'), () => {
   console.log(`app listening on port ${app.get('port')}`)
 });
 
+
+setInterval(() => {
+  updateDB();
+}, 10000);
