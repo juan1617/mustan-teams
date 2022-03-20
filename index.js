@@ -104,12 +104,36 @@ const app = express();
 const path = require('path');
 
 app.set('port', process.env.PORT || 8000);
-app.set('view engine', 'ejs');
+
+//handlebars
+const {engine} = require('express-handlebars') 
+app.set('view engine', 'hbs');
+
+app.engine('hbs', engine({
+    defaultLayout: false,
+    helpers:{
+      posColor: function(value, options) {
+        switch(value){
+          case "1": 
+          case "2":
+            return "clasifica";
+            break;
+          case "13":
+          case "14":
+            return "no-clasifica";
+            break;
+          default: ""
+        }        
+      }
+    }
+}));
+app.use(express.static('views'));
+
 
 app.get('/', (req, res) => {
   updateDB().then(() => {
     readDB().then((data) => {
-      res.render('index', { teams: data });
+      res.render('index', { teamsA: data.slice(0,14), teamsB: data.slice(14, data.length) });
     }).catch((err) => { console.log(err); });
   }).catch((err) => { console.log(err); });
 });

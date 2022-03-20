@@ -25,44 +25,44 @@
                 </tr>
             </thead>
             <tbody>
-                <% for(var i=0; i < 14; i++) { %>
+                {{#each teamsA}} 
                     <tr
-                        class="<%= i==0 || i == 1 ? 'clasifica' : ((i == 12 || i == 13) ? 'no-clasifica' : '') %>">
+                        class="{{posColor this.position}}">
                         <td class="td-number bg-gray">
-                            <%= teams[i].position %>
+                            {{this.position}}
                         </td>
                         <td class="td-logo">
-                            <img src="<%= teams[i].imgUrl %>">
+                            <img src="{{this.imgUrl}}">
                             <div>
-                                <%= teams[i].team %>
+                                {{this.team}}
                             </div>
                         </td>
                         <td class="td-number bg-gray">
-                            <%= teams[i].PJ %>
+                            {{ this.PJ }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].G %>
+                            {{ this.G }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].E %>
+                            {{ this.E }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].P %>
+                            {{ this.P }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].GF %>
+                            {{ this.GF }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].GC %>
+                            {{ this.GC }}
                         </td>
                         <td class="td-number">
-                            <%= teams[i].DG %>
+                            {{ this.DG }}
                         </td>
                         <td class="td-number bg-gray">
-                            <%= teams[i].points %>
+                            {{ this.points }}
                         </td>
                     </tr>
-                    <% } %>
+                    {{/each}}
             </tbody>
         </table>
         
@@ -83,44 +83,44 @@
                 </tr>
             </thead>
             <tbody>
-                <% for(var i=14; i < teams.length; i++) { %>
+                {{#each teamsB}}
                     <tr
-                        class="<%= i==14 || i == 15 ? 'clasifica' : ((i == (teams.length - 1) || i == (teams.length - 2)) ? 'no-clasifica' : '') %>">
+                        class="{{posColor this.position}}">
                         <td class="td-number bg-gray">
-                            <%= teams[i].position %>
+                            {{this.position }}
                         </td>
                         <td class="td-logo">
-                            <img src="<%= teams[i].imgUrl %>">
+                            <img src="{{ this.imgUrl }}">
                             <div>
-                                <%= teams[i].team %>
+                                {{ this.team }}
                             </div>
                         </td>
                         <td class="td-number bg-gray">
-                            <%= teams[i].PJ %>
+                            {{ this.PJ }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].G %>
+                            {{ this.G }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].E %>
+                            {{ this.E }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].P %>
+                            {{ this.P }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].GF %>
+                            {{ this.GF }}
                         </td>
                         <td class="td-number d-none">
-                            <%= teams[i].GC %>
+                            {{ this.GC }}
                         </td>
                         <td class="td-number">
-                            <%= teams[i].DG %>
+                            {{ this.DG }}
                         </td>
                         <td class="td-number bg-gray">
-                            <%= teams[i].points %>
+                            {{ this.points }}
                         </td>
                     </tr>
-                    <% } %>
+                    {{/each}}
             </tbody>
         </table>
     </div>
